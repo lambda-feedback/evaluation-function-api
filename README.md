@@ -13,3 +13,9 @@ Lambda Feedback Evaluation Function API.
 ## Overview
 
 The Evaluation Function API uses an RPC-like approach via HTTP, handling commands in the command HTTP header. It evaluates student responses with the eval command. For more complex cases, the optional preview command allows to perform lightweight checks without full evaluation.
+
+### Command Header
+
+The `command` header specifies the action to be performed by the evaluation function. The API currently supports two commands: `eval` and `preview`.
+
+Historically, some evaluation functions may also support the two legacy commands `healthcheck` and `docs`, which are used for health checks and documentation retrieval, respectively. However, these commands are considered deprecated.
