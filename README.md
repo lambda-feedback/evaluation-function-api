@@ -12,7 +12,7 @@ Lambda Feedback Evaluation Function API.
 
 ## Overview
 
-The Evaluation Function API uses an RPC-like approach via HTTP, handling commands in the command HTTP header. It evaluates student responses with the eval command. For more complex cases, the optional preview command allows to perform lightweight checks without full evaluation.
+The Evaluation Function API uses an RPC-like approach via HTTP, handling commands in the command HTTP header. It evaluates student responses with the `eval` command. For more complex cases, the optional `preview` command allows to perform lightweight checks without full evaluation.
 
 ### Command Header
 
