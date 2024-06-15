@@ -2,6 +2,9 @@ openapi: 3.0.3
 info:
   title: Evaluation Function API
   version: 1.0.0
+tags:
+  - name: evaluation
+    description: Evaluation
 paths:
   /{eval}:
     post:
