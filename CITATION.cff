@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: Evaluation Function API
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Louis
+    family-names: Manestar
+    email: louis.manestar18@imperial.ac.uk
+    affiliation: Imperial College London
+  - given-names: Andreas
+    family-names: Pfurtscheller
+    email: andreas.pfurtscheller23@imperial.ac.uk
+    affiliation: Imperial College London
+repository-code: 'https://github.com/lambda-feedback/shimmy'
+abstract: >-
+  The Evaluation Function API defines a standardised interface
+  for evaluation functions in the context of Lambda Feedback.
+keywords:
+  - api
+  - openapi
+  - swagger
+  - evaluation function
+  - lambda feedback
+  - education
+  - lms

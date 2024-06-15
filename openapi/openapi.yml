@@ -1,0 +1,227 @@
+openapi: 3.0.3
+info:
+  title: Evaluation Function API
+  version: 1.0.0
+paths:
+  /{eval}:
+    post:
+      operationId: evaluate
+      tags: [evaluation]
+      summary: Evaluate a student response
+      parameters:
+        - in: header
+          name: command
+          required: false
+          schema:
+            enum: [eval]
+            type: string
+            default: eval
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EvaluationRequest'
+            examples:
+              correct:
+                description: Correct evaluation request
+                value:
+                  response: "Hello, World!"
+                  answer: "Hello, World!"
+              incorrect:
+                description: Incorrect evaluation request
+                value:
+                  response: "Hello, World!"
+                  answer: "Bye, World!"
+              params:
+                description: Incorrect evaluation request
+                value:
+                  response: "Hello, World!"
+                  answer: "hello, world!"
+                  params:
+                    case_sensitive: false
+      responses:
+        '200':
+          description: Evaluation response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvaluationResponse'
+              examples:
+                correct:
+                  description: Successful evaluation response
+                  value:
+                    command: eval
+                    result:
+                      is_correct: true
+                      feedback: "Good job!"
+                incorrect:
+                  description: Incorrect evaluation response
+                  value:
+                    command: eval
+                    result:
+                      is_correct: false
+                      feedback: "Try again!"
+                error:
+                  description: Error evaluation response
+                  value:
+                    error:
+                      message: "An error occurred"
+                      error_thrown: "Exception"
+        '400':
+          description: Bad request
+  /{preview}:
+    post:
+      operationId: preview
+      tags: [preview]
+      summary: Validate and normalize student response
+      parameters:
+        - in: header
+          name: command
+          required: true
+          schema:
+            enum: [preview]
+            type: string
+            default: preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PreviewRequest'
+            examples:
+              default:
+                value:
+                  response: "Hello, World!"
+              params:
+                value:
+                  response: "hello, world!"
+                  params:
+                    case_sensitive: false
+      responses:
+        '200':
+          description: Preview response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreviewResponse'
+              examples:
+                default:
+                  description: Successful preview response
+                  value:
+                    command: preview
+                    result:
+                      preview: "Hello, World!"
+                params:
+                  description: Successful preview response
+                  value:
+                    command: preview
+                    result:
+                      preview: "hello, world!"
+                error:
+                  description: Error preview response
+                  value:
+                    error:
+                      message: "An error occurred"
+                      error_thrown: "Exception"
+        '400':
+          description: Bad request
+components:
+  schemas:
+    EvaluationData:
+      description: Student response or educator answer data. Can be anything, a string, an array, an object, etc.
+
+    EvaluationParams:
+      description: Parameters for a evaluation or preview request.
+      type: object
+
+    EvaluationResult:
+      type: object
+      properties:
+        is_correct:
+          title: Response correctness
+          type: boolean
+        feedback:
+          title: Feedback message
+          oneOf:
+            - type: string
+            - type: array
+            - type: object
+      additionalProperties: true
+      required:
+        - is_correct
+
+    PreviewResult:
+      type: object
+      properties:
+        preview:
+          $ref: '#/components/schemas/EvaluationData'
+      additionalProperties: true
+      required:
+        - preview
+
+    EvaluationError:
+      type: object
+      properties:
+        message:
+          title: Error message
+          type: string
+        error_thrown:
+          title: Details of the error thrown
+          oneOf:
+            - type: object
+            - type: string
+      additionalProperties: true
+      required:
+        - message
+
+    EvaluationRequest:
+      type: object
+      properties:
+        response:
+          $ref: '#/components/schemas/EvaluationData'
+        answer:
+          $ref: '#/components/schemas/EvaluationData'
+        params:
+          $ref: '#/components/schemas/EvaluationParams'
+      additionalProperties: false
+      required:
+        - response
+        - answer
+
+    EvaluationResponse:
+      type: object
+      properties:
+        command:
+          title: Command type
+          type: string
+          enum: [eval]
+        result:
+          $ref: '#/components/schemas/EvaluationResult'
+        error:
+          $ref: '#/components/schemas/EvaluationError'
+      additionalProperties: false
+
+    PreviewRequest:
+      type: object
+      properties:
+        response:
+          $ref: '#/components/schemas/EvaluationData'
+        params:
+          $ref: '#/components/schemas/EvaluationParams'
+      additionalProperties: false
+      required:
+        - response
+
+    PreviewResponse:
+      type: object
+      properties:
+        command:
+          title: Command type
+          type: string
+          enum: [preview]
+        result:
+          $ref: '#/components/schemas/PreviewResult'
+        error:
+          $ref: '#/components/schemas/EvaluationError'
+      additionalProperties: false
