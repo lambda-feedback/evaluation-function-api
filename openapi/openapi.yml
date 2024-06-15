@@ -2,9 +2,15 @@ openapi: 3.0.3
 info:
   title: Evaluation Function API
   version: 1.0.0
+  description: |
+    The Evaluation Function API uses an RPC-like approach via HTTP, handling
+    commands in the command HTTP header. It evaluates student responses with
+    the eval command. For more complex cases, the optional preview command
+    allows to perform lightweight checks without full evaluation.
+
 tags:
   - name: evaluation
-    description: Evaluation
+    description: Evaluate and preview responses
 paths:
   /{eval}:
     post:
