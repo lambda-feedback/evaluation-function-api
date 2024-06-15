@@ -153,9 +153,12 @@ components:
         feedback:
           title: Feedback message
           oneOf:
-            - type: string
-            - type: array
-            - type: object
+            - title: Feedback string
+              type: string
+            - title: List of feedback strings
+              type: array
+            - title: Feedback object
+              type: object
       additionalProperties: true
       required:
         - is_correct
@@ -178,8 +181,10 @@ components:
         error_thrown:
           title: Details of the error thrown
           oneOf:
-            - type: object
-            - type: string
+            - title: Error object
+              type: object
+            - title: Error string
+              type: string
       additionalProperties: true
       required:
         - message
