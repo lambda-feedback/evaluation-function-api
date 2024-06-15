@@ -73,7 +73,7 @@ paths:
   /{preview}:
     post:
       operationId: preview
-      tags: [preview]
+      tags: [evaluation]
       summary: Validate and normalize student response
       parameters:
         - in: header
