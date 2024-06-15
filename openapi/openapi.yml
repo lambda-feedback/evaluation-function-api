@@ -167,6 +167,7 @@ components:
       type: object
       properties:
         preview:
+          description: Normalized student response
           $ref: '#/components/schemas/EvaluationData'
       additionalProperties: true
       required:
@@ -193,8 +194,10 @@ components:
       type: object
       properties:
         response:
+          description: Student response
           $ref: '#/components/schemas/EvaluationData'
         answer:
+          description: Educator answer
           $ref: '#/components/schemas/EvaluationData'
         params:
           $ref: '#/components/schemas/EvaluationParams'
@@ -220,6 +223,7 @@ components:
       type: object
       properties:
         response:
+          description: Student response
           $ref: '#/components/schemas/EvaluationData'
         params:
           $ref: '#/components/schemas/EvaluationParams'

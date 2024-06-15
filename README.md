@@ -7,8 +7,7 @@
  </a>
 </div>
 
-This Repository contains the specification and validation schemas for the
-Lambda Feedback Evaluation Function API.
+This Repository contains the specification and validation schemas for the Lambda Feedback Evaluation Function API. The API is expected to be implemented by evaluation functions that are used in the Lambda Feedback platform.
 
 ## Overview
 
