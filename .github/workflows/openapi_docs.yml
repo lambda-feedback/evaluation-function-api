@@ -23,7 +23,7 @@ jobs:
           node-version: "20"
 
       - name: Generate OpenAPI documentation
-        run: npx @redocly/cli build-docs -o out/index.html openapi/openapi.yaml
+        run: npx @redocly/cli build-docs -o out/index.html openapi/openapi.yml
 
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
