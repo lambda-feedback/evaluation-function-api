@@ -1,11 +1,11 @@
 # Evaluation Function API
 
-<p style="text-align:center">
+<div style="text-align:center">
  <img src="https://github.com/lambda-feedback/evaluation-function-api/actions/workflows/openapi_docs.yml/badge.svg?branch=main" />
  <a href="https://lambda-feedback.github.io/evaluation-function-api/">
     <img src="https://img.shields.io/badge/Docs-OpenAPI-blue?logo=github&labelColor=24292E"/>
  </a>
-</p>
+</div>
 
 This Repository contains the specification and validation schemas for the
 Lambda Feedback Evaluation Function API.
