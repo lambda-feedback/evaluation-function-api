@@ -2,7 +2,9 @@
 
 <p style="text-align:center">
  <img src="https://github.com/lambda-feedback/evaluation-function-api/actions/workflows/openapi_docs.yml/badge.svg?branch=main" />
- <object data="https://img.shields.io/badge/Docs-OpenAPI-blue?logo=github&labelColor=24292E&link=https%3A%2F%2Flambda-feedback.github.io%2Fevaluation-function-api%2F" type="image/svg+xml"></object>
+ <a href="https://lambda-feedback.github.io/evaluation-function-api/">
+    <img src="https://img.shields.io/badge/Docs-OpenAPI-blue?logo=github&labelColor=24292E"/>
+ </a>
 </p>
 
 This Repository contains the specification and validation schemas for the
