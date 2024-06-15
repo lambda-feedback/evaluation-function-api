@@ -19,3 +19,7 @@ The Evaluation Function API uses an RPC-like approach via HTTP, handling command
 The `command` header specifies the action to be performed by the evaluation function. The API currently supports two commands: `eval` and `preview`.
 
 Historically, some evaluation functions may also support the two legacy commands `healthcheck` and `docs`, which are used for health checks and documentation retrieval, respectively. However, these commands are considered deprecated.
+
+### Documentation
+
+The full documentation is available [here](https://lambda-feedback.github.io/evaluation-function-api/).
